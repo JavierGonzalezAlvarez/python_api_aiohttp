@@ -1,7 +1,7 @@
 from datetime import datetime
 from typing import Dict, List, Optional
-from beanie import Document, init_beanie
 from pydantic import BaseModel, Field
+from beanie import Document
 
 class Address(BaseModel):
     """
@@ -35,7 +35,7 @@ class GeneralData(Document):
     """
     define general data
     """
-    code: str | None
+    code_general: str | None
     status: str = "deactivated"
     company_name: str
     juridica: Optional[List[str]] = None
