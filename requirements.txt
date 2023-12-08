@@ -1,0 +1,7 @@
+aiohttp
+aiodns
+kubernetes
+beanie
+motor
+pydantic
+requests
