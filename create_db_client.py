@@ -80,7 +80,7 @@ async def get_current_db() -> List:
 async def main():
     """
     creates a new db & collection
-    returns: db
+    returns: create a db
     """    
     value: bool = True
     while value:

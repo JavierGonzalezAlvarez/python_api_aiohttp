@@ -1,4 +1,4 @@
-# api pure
+# api with aiohttp
 
 * $ virtualenv entorno_virtual -p python3.11
 * $ source entorno_virtual/bin/activate
