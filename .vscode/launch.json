@@ -2,17 +2,40 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python: api client",
             "type": "python",
             "request": "launch",
-            "program": "${file}",
+            "program": "${workspaceFolder}/api_client.py",
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": {
                 "CONEXION_STRING": "mongodb://localhost:27017"
             } 
-
-
+        },
+        {
+            "name": "Python: Server",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/server_http.py",            
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "env": {
+                "CONEXION_STRING": "mongodb://localhost:27017"
+            }
+        },
+        {
+            "name": "Python: Create database",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/create_db_client.py",            
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "justMyCode": true,
+            "env": {
+                "CONEXION_STRING": "mongodb://localhost:27017"
+            }
         }
+
     ]
 }

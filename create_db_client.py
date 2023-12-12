@@ -1,6 +1,5 @@
 import asyncio
 import logging
-import os
 import re
 from typing import List
 import uuid
@@ -8,7 +7,7 @@ import uuid
 from beanie import init_beanie
 from motor.motor_asyncio import AsyncIOMotorClient
 from models.model import GeneralData, Employees
-
+from conexion import get_conexion
 
 logger = logging.getLogger()
 
@@ -21,8 +20,8 @@ logging.basicConfig(
 
 async def create_client(db_name: str):    
     """Beanie uses Motor async client under the hood"""    
-    CONEXION_STRING = os.environ.get("CONEXION_STRING", "mongodb://localhost:27017") # local entorno virtual    
-    client = AsyncIOMotorClient(CONEXION_STRING)
+
+    client = get_conexion()
 
     # create specified db
     db_created = client[db_name]
@@ -49,7 +48,7 @@ async def create_client(db_name: str):
 
     code_general = str(uuid.uuid4())
     new_general_data = GeneralData(
-        code=code_general,
+        code_general=code_general,
         company_name="Example",
         address=new_address_administracion,
         employees=[new_employee],
@@ -65,9 +64,8 @@ async def get_current_db() -> List:
     """
       get a list of db from the cluster
     """
-    CONEXION_STRING = os.environ.get("CONEXION_STRING")
-    print("CONEXION:", CONEXION_STRING)
-    client = AsyncIOMotorClient(CONEXION_STRING)
+    client = get_conexion()
+
     try:
         database_names = await client.list_database_names()
         client.close()
