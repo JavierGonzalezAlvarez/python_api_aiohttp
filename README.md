@@ -12,5 +12,4 @@ $ systemctl enable mongod
 $ systemctl stop mongod
 
 $ mongodb-compass
-
 - mongodb://localhost:27017
